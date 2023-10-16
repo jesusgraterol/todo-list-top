@@ -1,0 +1,218 @@
+/***********
+ * IMPORTS *
+ ***********/
+ 
+/* Font */
+@import url("modules/font.css");
+
+/* Material Icons */
+@import url("modules/material_icons.css");
+
+
+
+
+
+
+
+
+/***********
+ * GLOBALS *
+ ***********/
+:root {
+    --text-color: #312e2e;
+    --success-color: #0f766e;
+    --error-color: #B71C1C;
+    --light-text-color: #4e4949;
+
+
+    --header-height: 150px;
+    --mobile-header-height: 110px;
+}
+
+
+
+
+
+
+/*************
+ * SANITIZER *
+ *************/
+*, *::before, *::after { box-sizing: border-box; border:none; background-repeat: no-repeat; padding:0; margin: 0; }
+html {  word-break: break-word; scroll-behavior: smooth; color: var(--text-color)}
+img { max-width: 100%; }
+ul,ol { list-style: none;padding-left:0;}
+ul li, ol li { margin: 10px 0 10px 0; }
+ul li .md-icon, ol li .md-icon { vertical-align: middle;}
+.truncate { white-space: nowrap;overflow: hidden;text-overflow: ellipsis;}
+
+
+
+
+
+
+
+
+/******************
+ * FILLED BUTTONS *
+ ******************/
+
+/* Filled Button */
+/* .filled-button {
+    background-color: #000000;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-weight:bold;
+}
+.filled-button:hover, .filled-button:active {
+    opacity: 0.7;
+} */
+
+
+
+
+
+
+
+
+
+
+
+
+
+/************
+ * APP BODY *
+ ************/
+body {
+    font-family: "Montserrat", "Roboto", sans-serif;
+    background-color: #f7f1f1;
+    height: 100%;
+    width: 100%;
+}
+
+
+
+
+
+
+
+/*****************
+ * APP CONTAINER *
+ *****************/
+#app_container {
+
+}
+
+
+
+
+
+
+
+
+
+
+/**********
+ * HEADER *
+ **********/
+header {
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/****************************
+ * RESPONSIVE MEDIA QUERIES *
+ ****************************/
+
+
+
+/*
+ * DEVICE: Desktops
+ * SCREEN: 1281px to higher resolution desktops
+ */
+@media (min-width: 1281px) {
+
+
+
+}
+ 
+ 
+/*
+ * DEVICE: Laptops, Desktops
+ * SCREEN: B/w 1025px to 1280px
+ */
+@media (min-width: 1025px) and (max-width: 1280px) {
+
+
+}
+ 
+ 
+/*
+ * DEVICE: Tablets, Ipads (portrait)
+ * SCREEN: B/w 768px to 1024px
+ */
+@media (min-width: 768px) and (max-width: 1024px) {
+
+
+
+}
+ 
+ 
+/*
+ * DEVICE: Tablets, Ipads (landscape)
+ * SCREEN: B/w 768px to 1024px
+ */
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+
+
+
+
+}
+ 
+ 
+/*
+ * DEVICE: Low Resolution Tablets, Mobiles (Landscape)
+ * SCREEN: B/w 481px to 767px
+ */
+@media (min-width: 481px) and (max-width: 767px) {
+
+
+
+}
+
+ 
+ 
+/*
+ * DEVICE: Most of the Smartphones Mobiles (Portrait)
+ * SCREEN: 480px to lower resolution mobiles
+ */
+@media (max-width: 480px) {
+
+
+}
