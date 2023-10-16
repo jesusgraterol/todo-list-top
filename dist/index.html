@@ -24,8 +24,111 @@
         <!-- App Container -->
         <div id="app_container">
 
-            <h1>Hello World!</h1>
-            <span class="md-icon">face</span>
+            <!-- Header -->
+            <header>
+
+                <!-- Logo -->
+                <span class="md-icon md-48">checklist</span>
+                <span id="logo_text">TODO List</span>
+
+
+                <!-- Sidenav Toggler -->
+                <button id="sidenav_toggler"><span class="md-icon">menu</span></button>
+
+
+                <!-- View Source Code -->
+                <a  href="https://github.com/jesusgraterol/todo_list_top" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    id="source_code_button">View on Github</a>
+
+            </header>
+
+
+            <!-- Sub Header -->
+            <div id="sub_header">
+
+                <!-- Project Name -->
+                <span id="sub_header_title" class="truncate">Default Project</span>
+
+
+                <!-- Project Actions -->
+                <button id="edit_project_button"><span class="md-icon">edit</span></button>
+                <button id="delete_project_button"><span class="md-icon">delete</span></button>
+
+            </div>
+
+
+            <!-- App Content -->
+            <div id="app_inner_container">
+
+                <!-- Desktop Sidenav -->
+                <aside id="desktop_sidenav" class="sidenav">
+
+                    <!-- Projects Header -->
+                    <div class="header">
+
+                        <!-- Projects Title-->
+                        <h2>Projects</h2>
+
+
+                        <!-- Add Project Button -->
+                        <button id="add_project_button"><span class="md-icon">add</span></button>
+
+                    </div>
+
+                    <!-- Project List -->
+                    <ul>
+                        <li>
+                            <button disabled>
+                                <span class="truncate">Default Project</span>
+                                <span class="badge">5</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button>
+                                <span class="truncate">Some Other Project</span>
+                                <span class="badge">0</span>
+                            </button>
+                        </li>
+                    </ul>
+
+                </aside>
+
+
+                <!-- TODOs Container -->
+                <main id="todos_container">
+
+                    <!-- NO Todos were found-->
+                    <p id="no-todos-found">No records were found</p>
+
+                </main>
+
+            </div>
+
+
+            <!-- TODO Add Button -->
+            <button id="todo_add_button"><span class="md-icon">add</span></button>
+            
+
+            <!-- Toastr -->
+            <div id="toastr"><span class="md-icon" id="toastr_icon"></span> <p id="toastr_text"></p></div>
+
+
+            <!-- Modal -->
+            <dialog id="modal">
+
+                <!-- Header -->
+                <div id="modal_header">
+                    <p id="modal_title" class="truncate"><!-- Handled by modal.js --></p>
+                    <button id="modal_close_button" tabindex="-1"><span class="md-icon">close</span></button>
+                </div>
+
+                <!-- Content Container -->
+                <div id="modal_content"><!-- Handled by modal.js --></div>
+
+            </dialog>
+
         </div>
 
     </body>

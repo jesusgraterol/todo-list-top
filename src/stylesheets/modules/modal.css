@@ -1,0 +1,37 @@
+dialog {
+    padding: 15px;
+    margin:auto;
+    animation: fadein;
+    animation-duration:0.5s;
+}
+dialog #modal_header {
+    display: flex;
+    align-items: center;
+}
+dialog #modal_header p {
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+dialog #modal_header button {
+    margin-left: auto;
+    color: var(--text-color);
+}
+dialog #modal_header button:focus {
+    outline: none;
+}
+dialog #modal_header button:hover {
+    opacity: 0.8;
+}
+dialog #modal_content {
+    margin-top: 15px;
+}
+dialog::backdrop {
+    background-color:rgba(0,0,0,0.4);
+}
+
+
+
+
+
+
+@keyframes fadein { from { opacity:0 } to { opacity:1 } }

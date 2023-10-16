@@ -1,21 +1,15 @@
-
-
-
 /**
- * 
+ * App Imports
+ * Stylesheets, assets and scripts should be imported in the following section so they are included
+ * in the build.
  */
-const App = function() {
-    // Initialize the global app container element
-    const _app_container_el = document.getElementById("app_container");
-    console.log(_app_container_el)
-
-}
 
 
+// Stylesheets
+import "../stylesheets/app.css";
 
 
-
-/******************
- * MODULE EXPORTS *
- ******************/
-export default App;
+// Scripts
+import Utilities from "./modules/utilities";
+import Toastr from "./modules/toastr";
+import Modal from "./modules/modal";

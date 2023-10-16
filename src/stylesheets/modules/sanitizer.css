@@ -1,0 +1,8 @@
+*, *::before, *::after { box-sizing: border-box; border:none; background-repeat: no-repeat; padding:0; margin: 0; }
+html {  word-break: break-word; scroll-behavior: smooth; color: var(--text-color)}
+img { max-width: 100%; }
+ul,ol { list-style: none;padding-left:0;}
+ul li, ol li { margin: 10px 0 10px 0; }
+ul li .md-icon, ol li .md-icon { vertical-align: middle;}
+button {background-color: inherit;}
+button:hover {cursor: pointer;}
