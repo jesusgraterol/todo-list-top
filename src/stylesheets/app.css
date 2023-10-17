@@ -15,11 +15,17 @@
 /* Utilities */
 @import url("modules/utilities.css");
 
+/* Spinner */
+@import url("modules/spinner.css");
+
 /* Toastr */
 @import url("modules/toastr.css");
 
 /* Modal */
 @import url("modules/modal.css");
+
+/* Form */
+@import url("modules/form.css");
 
 
 

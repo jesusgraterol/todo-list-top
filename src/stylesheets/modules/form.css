@@ -1,0 +1,85 @@
+.form {
+    
+}
+
+.form .form-row {
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+}
+
+
+/* Form Control */
+.form .form-row .form-control {
+    padding: 15px 5px 15px 5px;
+    flex: 1;
+}
+.form .form-row .form-control input,
+.form .form-row .form-control textarea {
+    width: 100%;
+    border:0px;
+    background-color: inherit;
+    border-bottom: 1px solid var(--primary-color);
+    padding:7px;
+    margin-top: 10px;
+    /* border-radius: 4px; */
+}
+
+.form .form-row .form-control textarea {
+    resize: vertical;
+}
+
+.form .form-row .form-control input:focus,
+.form .form-row .form-control input:active,
+.form .form-row .form-control textarea:focus,
+.form .form-row .form-control textarea:active {
+    outline: none;
+    border-bottom: 2px solid var(--primary-color);
+    margin-bottom: -2px;
+}
+.form .form-row .form-control label {
+    display: block;
+}
+.form .form-row .form-control label:focus-within { font-weight: bold;}
+
+
+/* Form Control Error */
+.form .form-row .form-control .error-color {
+    color: var(--error-color);
+}
+.form .form-row .form-control input.errored,
+.form .form-row .form-control textarea.errored { 
+    border-bottom: 2px solid var(--error-color);
+    margin-bottom: -2px;
+}
+.form .form-row .form-control .error {
+
+}
+.form .form-row .form-control .error .md-icon {vertical-align: middle;font-size:1rem;}
+.form .form-row .form-control .error {
+    font-size: 0.8rem;
+    color: var(--error-color);
+    margin-top:5px;
+    visibility: hidden;
+}
+
+
+
+
+/* Form Submission */
+.form button {
+    padding:15px;
+    color:white;
+    background-color: var(--primary-color);
+    font-weight: bold;
+    width: 100%;
+}
+.form button:hover,
+.form button:active,
+.form button:focus { background-color: var(--primary-color); }
+.form button:hover { cursor: pointer;}
+.form button:focus { outline: none; }
+.form button:disabled {
+    cursor: not-allowed;
+    background-color: #a09a9a;
+}

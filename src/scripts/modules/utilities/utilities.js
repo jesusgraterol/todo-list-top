@@ -1,4 +1,4 @@
-
+import { v4 as uuidv4 } from "uuid";
 
 
 /**
@@ -52,7 +52,22 @@ const Utilities = (() => {
 
 
 
-   /********************
+    /**
+     * Generates a universally unique identifier.
+     * @returns string
+     */
+    const generate_uuid = () => { return uuidv4() }
+
+
+
+
+
+
+
+
+
+
+    /********************
      * POST CONSTRUCTOR *
      ********************/
 
@@ -68,7 +83,8 @@ const Utilities = (() => {
      * EXPORTS *
      ***********/
     return {
-        get_error_message
+        get_error_message,
+        generate_uuid
     }
 })();
 

@@ -13,3 +13,4 @@ import "../stylesheets/app.css";
 import Utilities from "./modules/utilities";
 import Toastr from "./modules/toastr";
 import Modal from "./modules/modal";
+import { FormGroup, FormControl } from "./modules/form";
