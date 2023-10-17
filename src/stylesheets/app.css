@@ -15,6 +15,9 @@
 /* Utilities */
 @import url("modules/utilities.css");
 
+/* Animations */
+@import url("modules/animations.css");
+
 /* Spinner */
 @import url("modules/spinner.css");
 
@@ -46,7 +49,7 @@
     --error-color: #B71C1C;
     --light-text-color: #4e4949;
 
-
+    --app-background-color: #f7f1f1;
 
 }
 
@@ -97,7 +100,7 @@
  ************/
 body {
     font-family: "Montserrat", "Roboto", sans-serif;
-    background-color: #f7f1f1;
+    background-color: var(--app-background-color);
     height: 100%;
     width: 100%;
 }
@@ -165,7 +168,7 @@ header #logo_text {
 
 
 /* Sidenav Toggler */
-#sidenav_toggler {
+#sidenav_opener {
     display: none;
 }
 
@@ -239,30 +242,30 @@ header #logo_text {
 /***********
  * SIDENAV *
  ***********/
-.sidenav {
+#sidenav {
     width: 300px;
     padding:25px 15px 15px 15px;
 }
 
 
 /* Sidenav Header */
-.sidenav .header {
+#sidenav .header {
     display: flex;
     justify-content: flex-start;
     align-items: center;
 }
-.sidenav .header h2 {
+#sidenav .header h2 {
     font-size: 1.1rem;
     color: var(--light-text-color);
     font-weight: 600;
 }
-.sidenav .header #add_project_button {
+#sidenav .header #add_project_button {
     background-color: inherit;
     margin: 0 0 0 auto;
     color: var(--light-text-color);
     padding:0;
 }
-.sidenav .header #add_project_button:hover {
+#sidenav .header #add_project_button:hover {
     cursor: pointer;
     opacity: 0.7;
 }
@@ -271,11 +274,12 @@ header #logo_text {
 
 
 /* Sidenav List */
-.sidenav ul {
+#sidenav #sidenav_projects {
     margin-top: 25px;
 }
 
-.sidenav ul li button {
+#sidenav #sidenav_projects ul li button, 
+#mobile_sidenav_container #mobile_sidenav #mobile_sidenav_projects ul li button {
     width: 100%;
     display: flex;
     justify-content: flex-start;
@@ -284,16 +288,19 @@ header #logo_text {
     background-color: inherit;
     font-size:0.9rem;
 }
-.sidenav ul li button:hover {
+#sidenav #sidenav_projects ul li button:hover, 
+#mobile_sidenav_container #mobile_sidenav #mobile_sidenav_projects ul li button:hover {
     cursor: pointer;
     background-color: #ebe2e2;
 }
-.sidenav ul li button:disabled {
+#sidenav #sidenav_projects ul li button:disabled, 
+#mobile_sidenav_container #mobile_sidenav #mobile_sidenav_projects ul li button:disabled {
     cursor: not-allowed;
     background-color: inherit;
 }
 
-.sidenav ul li button .badge {
+#sidenav #sidenav_projects ul li button .badge, 
+#mobile_sidenav_container #mobile_sidenav #mobile_sidenav_projects ul li button .badge {
     background-color: var(--primary-color);
     color:white;
     padding:3px 6px;
@@ -303,7 +310,8 @@ header #logo_text {
     border-radius: 30px;
 }
 
-.sidenav ul li button:disabled .badge {
+#sidenav #sidenav_projects ul li button:disabled .badge, 
+#mobile_sidenav_container #mobile_sidenav #mobile_sidenav_projects ul li button:disabled .badge {
     background-color: #837a7a;
 
 }
@@ -312,6 +320,53 @@ header #logo_text {
 
 
 
+
+/******************
+ * MOBILE SIDENAV *
+ ******************/
+#mobile_sidenav_container {
+    position: fixed;
+    top:0;
+    left:0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index:2;
+    display: none;
+    animation: fadein;
+    animation-duration:0.5s;
+}
+
+#mobile_sidenav_container #mobile_sidenav {
+    position:absolute;
+    top:0;
+    right: 0;
+    width: 250px;
+    height: 100vh;
+    background-color: var(--app-background-color);
+    z-index:3;
+}
+
+#mobile_sidenav_container #mobile_sidenav header {
+    padding: 15px;
+    background-color: var(--accent-color);
+    color:white;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    box-shadow: 0 6px 10px 0 rgba(0,0,0,0.14), 0 1px 18px 0 rgba(0,0,0,0.12), 0 3px 5px -1px rgba(0,0,0,0.20);
+    gap: 15px;
+}
+
+#mobile_sidenav_container #mobile_sidenav header h2 {
+    font-size: 1.2rem;
+    flex:1;
+}
+
+
+#mobile_sidenav_container #mobile_sidenav #mobile_sidenav_projects {
+    margin-top: 15px;
+}
 
 
 
@@ -346,6 +401,10 @@ header #logo_text {
     margin: 15px 0;
     box-shadow: 0 3px 4px 0 rgba(0,0,0,0.14), 0 3px 3px -2px rgba(0,0,0,0.12), 0 1px 8px 0 rgba(0,0,0,0.20);
 }
+
+
+
+
 
 
 
@@ -458,11 +517,15 @@ header #logo_text {
      * HEADER *
      **********/
 
+    /* Logo */
+    header .md-icon.md-48 { font-size: 38px;}
+    header #logo_text { font-size: 1.3rem; }
+
     /* Sidenav Toggler */
-    #sidenav_toggler { display: block; }
+    header #sidenav_opener { display: block; }
 
     /* View Source Code */
-    #source_code_button { display: none; }
+    header #source_code_button { display: none; }
 
 
 
@@ -470,7 +533,10 @@ header #logo_text {
 
 
 
-
+    /***********
+    * SIDENAV *
+    ***********/
+    #sidenav { display: none; }
 
 
 

@@ -32,8 +32,8 @@
                 <span id="logo_text">TODO List</span>
 
 
-                <!-- Sidenav Toggler -->
-                <button id="sidenav_toggler"><span class="md-icon">menu</span></button>
+                <!-- Sidenav Opener -->
+                <button id="sidenav_opener"><span class="md-icon">menu</span></button>
 
 
                 <!-- View Source Code -->
@@ -49,7 +49,7 @@
             <div id="sub_header">
 
                 <!-- Project Name -->
-                <span id="sub_header_title" class="truncate">Default Project</span>
+                <span id="sub_header_title" class="truncate">Some Other Project</span>
 
 
                 <!-- Project Actions -->
@@ -63,7 +63,7 @@
             <div id="app_inner_container">
 
                 <!-- Desktop Sidenav -->
-                <aside id="desktop_sidenav" class="sidenav">
+                <aside id="sidenav">
 
                     <!-- Projects Header -->
                     <div class="header">
@@ -78,20 +78,7 @@
                     </div>
 
                     <!-- Project List -->
-                    <ul>
-                        <li>
-                            <button disabled>
-                                <span class="truncate">Default Project</span>
-                                <span class="badge">5</span>
-                            </button>
-                        </li>
-                        <li>
-                            <button>
-                                <span class="truncate">Some Other Project</span>
-                                <span class="badge">0</span>
-                            </button>
-                        </li>
-                    </ul>
+                    <div id="sidenav_projects"><!-- Handled by project.js --></div>
 
                 </aside>
 
@@ -129,6 +116,32 @@
                 <div id="modal_content"><!-- Handled by modal.js --></div>
 
             </dialog>
+
+
+            <!-- Mobile Sidenav -->
+            <aside id="mobile_sidenav_container">
+                
+                <div id="mobile_sidenav">
+
+                    <header>
+
+                        <h2>Projects</h2>
+
+
+                        <button><span class="md-icon">add</span></button>
+                        <button id="mobile_sidenav_close_button">
+                            <span class="md-icon">arrow_right_alt</span>
+                        </button>
+
+                    </header>
+
+
+                    <!-- Project List -->
+                    <div id="mobile_sidenav_projects"><!-- Handled by project.js --></div>
+
+                </div>
+
+            </aside>
 
         </div>
 
