@@ -109,6 +109,95 @@ const ProjectUtilities = (() => {
 
 
 
+    /*************
+     * TODO FORM *
+     *************/
+
+
+
+
+
+    /**
+     * Builds the todo form's HTML content.
+     * @param {*} form_id 
+     * @param {?} todo 
+     * @returns 
+     */
+    const build_todo_form_html = (form_id, todo = undefined) => {
+        const active_priority = todo ? todo.priority: "1";
+        return `
+            <div class="form">
+                <form id="${form_id}" novalidate>
+                    <div class="form-row">
+                        <div class="form-control">
+                            <label for="description" id="description_label">Description*
+                                <textarea name="description" id="description" autofocus>${todo ? todo.description: ""}</textarea>
+                            </label>
+                            <p id="description_error" class="error">
+                                <span class="md-icon">error</span> Enter a valid description
+                            </p>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-control">
+                            <label for="priority" id="priority_label">Priority*
+                                <select name="priority" id="priority">
+                                    <option value="1" ${active_priority == '1' ? 'selected': ''}>First Priority</option>
+                                    <option value="2" ${active_priority == '2' ? 'selected': ''}>Second Priority</option>
+                                    <option value="3" ${active_priority == '3' ? 'selected': ''}>Third Priority</option>
+                                </select>
+                            </label>
+                            <p id="priority_error" class="error">
+                                <span class="md-icon">error</span> Enter a valid priority
+                            </p>
+                        </div>
+                    </div>
+                    <button type="submit" id="${form_id}_submit_button" disabled>SUBMIT</button>
+                </form>
+            </div>
+        `;
+    }
+
+
+
+
+
+
+
+    /**
+     * Builds the FormGroup Instance for a TODO.
+     * @param {*} form_id 
+     * @returns FormGroup
+     */
+    const build_todo_form_group = (form_id) => {
+        return FormGroup(form_id, [
+            {
+                id: "description", 
+                validate_function: (control_values) => {
+                    return  typeof control_values["description"] == "string" && 
+                            control_values["description"].length >= 3 && 
+                            control_values["description"].length <= 200;
+                }
+            },
+            {
+                id: "priority", 
+                validate_function: (control_values) => {
+                    return  typeof control_values["priority"] == "string" && 
+                            (
+                                control_values["priority"] == "1" ||
+                                control_values["priority"] == "2" ||
+                                control_values["priority"] == "3"
+                            )
+                }
+            }
+        ]);
+    }
+
+
+
+
+
+
 
 
 
@@ -136,12 +225,19 @@ const ProjectUtilities = (() => {
             id: uuid,
             name: "Default Project",
             active: true,
-            todos: []
+            todos: {}
         };
 
         // Finally, return it
         return default_state;
     }
+
+
+
+
+
+
+
 
 
 
@@ -179,6 +275,10 @@ const ProjectUtilities = (() => {
         // Project Form
         build_project_form_html,
         build_project_form_group,
+
+        // TODO Form
+        build_todo_form_html,
+        build_todo_form_group,
 
         // Misc Helpers
         build_default_state,

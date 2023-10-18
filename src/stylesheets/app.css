@@ -65,29 +65,6 @@
 
 
 
-/******************
- * FILLED BUTTONS *
- ******************/
-
-/* Filled Button */
-/* .filled-button {
-    background-color: var(--primary-color);
-    color: white;
-    padding: 14px 25px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-weight:bold;
-}
-.filled-button:hover, .filled-button:active {
-    opacity: 0.7;
-} */
-
-
-
-
-
-
 
 
 
@@ -381,17 +358,19 @@ header #logo_text {
  *******************/
 #todos_container {
     flex: 1;
-
+    padding: 15px;
 }
 
 
 /* No TODOs Found */
-#no-todos-found {
+.no-todos-found {
     margin-top:50px;
     text-align: center;
     color: var(--light-text-color);
     font-size: 0.9rem;
 }
+
+
 
 
 /* TODO Item */
@@ -400,10 +379,25 @@ header #logo_text {
     padding: 15px 10px;
     margin: 15px 0;
     box-shadow: 0 3px 4px 0 rgba(0,0,0,0.14), 0 3px 3px -2px rgba(0,0,0,0.12), 0 1px 8px 0 rgba(0,0,0,0.20);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 15px;
 }
+.todo-item p { flex:1; }
+.todo-item p:hover { cursor: pointer;}
+.todo-item button:hover { opacity: 0.7;}
 
 
+/* Completed State */
+.todo-item.completed { opacity:  0.5;}
+.todo-item.completed p { text-decoration: line-through;color: var(--light-text-color)}
 
+
+/* TODO Priority */
+.todo-item.priority-1 { border-left: 5px solid #042f2e}
+.todo-item.priority-2 { border-left: 5px solid #0d9488}
+.todo-item.priority-3 { border-left: 5px solid #99f6e4}
 
 
 
@@ -501,7 +495,45 @@ header #logo_text {
  * SCREEN: B/w 481px to 767px
  */
 @media (min-width: 481px) and (max-width: 767px) {
+    /**********
+     * HEADER *
+     **********/
 
+    /* Logo */
+    header .md-icon.md-48 { font-size: 38px;}
+    header #logo_text { font-size: 1.3rem; }
+
+    /* Sidenav Toggler */
+    header #sidenav_opener { display: block; }
+
+    /* View Source Code */
+    header #source_code_button { display: none; }
+
+
+
+
+
+
+
+    /***********
+    * SIDENAV *
+    ***********/
+    #sidenav { display: none; }
+
+
+
+
+
+
+
+    /*******************
+    * TODO ADD BUTTON *
+    *******************/
+    #todo_add_button {
+        bottom: 10px;
+        right: 10px;
+        padding:10px;
+    }
 
 
 }

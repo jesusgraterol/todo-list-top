@@ -16,5 +16,4 @@ import MobileSidenav from "./modules/mobile-sidenav";
 import Toastr from "./modules/toastr";
 import Modal from "./modules/modal";
 import { FormGroup, FormControl } from "./modules/form";
-import ViewManager from "./modules/view-manager";
-import Project, { ProjectUtilities } from "./modules/project";
+import Project, { ProjectUtilities, ProjectViewRenderer } from "./modules/project";

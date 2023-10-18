@@ -1,26 +1,28 @@
 import Database from "../database";
+import { ProjectUtilities } from "./project-utilities.js";
 
 
 
-
-const ViewManager = (() => {
+const ProjectViewRenderer = (() => {
     /***************
      * CONSTRUCTOR *
      ***************/
 
 
 
-    // Active Project title
+    // Initialzie the active project title element
     const _sub_header_title_el = document.getElementById("sub_header_title");
 
 
-    // Sidenav Projects List
+    // Initialize the sidenav projects list elements
     const _sidenav_els = [
         document.getElementById("sidenav_projects"),
         document.getElementById("mobile_sidenav_projects")
     ];
 
 
+    // Initialize the todos' container element
+    const _todos_container_el = document.getElementById("todos_container");
 
 
 
@@ -63,7 +65,7 @@ const ViewManager = (() => {
             <li>
                 <button${project.active ? " disabled": ""} data-project-id="${project.id}">
                     <span class="truncate" data-project-id="${project.id}">${project.name}</span>
-                    <span class="badge" data-project-id="${project.id}">${project.todos.length}</span>
+                    <span class="badge" data-project-id="${project.id}">${Object.keys(project.todos).length}</span>
                 </button>
             </li>
         `;
@@ -113,9 +115,87 @@ const ViewManager = (() => {
 
 
 
+    /***********************
+     * TODO LIST RENDERING *
+     ***********************/
+
+
+
+
+
+    /**
+     * Builds the todo item's classes string.
+     * @param {*} todo 
+     * @returns string
+     */
+    const _get_todo_item_classes = (todo) => {
+        return `todo-item priority-${todo.priority}${todo.completed ? " completed": ""}`;
+    }
+
+
+
+    /**
+     * Builds the HTML item for a single todo.
+     * @param {*} todo 
+     * @returns string
+     */
+    const _build_todo_item_html = (todo) => {
+        return `
+            <div class="${_get_todo_item_classes(todo)}">
+                <p data-todo-action="completed_${todo.id}">${todo.description}</p>
+                <button><span class="md-icon" data-todo-action="edit_${todo.id}">edit</span></button>
+                <button><span class="md-icon" data-todo-action="delete_${todo.id}">delete</span></button>
+            </div>
+        `;
+    }
+
+
+
+
+    /**
+     * Builds the HTML Content for the todo list.
+     * @param {*} new_state 
+     * @returns string
+     */
+    const _build_todo_list_html = (new_state) => {
+        // Initialize the active project
+        const active_project = ProjectUtilities.get_active_project(new_state);
+
+        // Initialize the list of todos within the project
+        let todos = Object.values(active_project.todos);
+
+        // Sort them by priority
+        todos.sort((a, b) => Number(a.priority) - Number(b.priority));
+
+        // Finally, build the HTML items and return them
+        return todos.reduce((accum, current) => {
+            accum += _build_todo_item_html(current);
+            return accum;
+        }, "");
+    }
+
 
 
     
+    /**
+     * Renders the todo list for the active project
+     * @param {*} new_state 
+     */
+    const _render_todo_list = (new_state) => {
+        // Build the HTML Content
+        const list_content = _build_todo_list_html(new_state);
+
+        // Check if the empty message should be displayed
+        if (list_content.length) {
+            _todos_container_el.innerHTML = list_content;
+        } else {
+            _todos_container_el.innerHTML = `<p class="no-todos-found">No records were found</p>`;
+        }
+    }
+
+
+
+
 
 
 
@@ -137,13 +217,16 @@ const ViewManager = (() => {
             const projects = Object.values(new_state);
 
             // Initialize the active project
-            const active = projects.find((project) => project.active);
+            const active = ProjectUtilities.get_active_project(new_state);
 
             // Set the name of the active project in the subheader
             _render_project_name_in_sub_header(active.name);
             
             // Render the project list
             _render_project_list(projects);
+
+            // Render the todo list
+            _render_todo_list(new_state);
         }
     }
 
@@ -193,4 +276,4 @@ const ViewManager = (() => {
 /******************
  * MODULE EXPORTS *
  ******************/
-export default ViewManager;
+export { ProjectViewRenderer };
