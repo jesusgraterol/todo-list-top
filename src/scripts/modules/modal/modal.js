@@ -49,7 +49,14 @@ const Modal = (() => {
     /**
      * Removes the modal from the DOM.
      */
-    const close = () => { _el.close() }
+    const close = () => { 
+        // Close the dialog element
+        _el.close();
+
+        // Set the title and the content
+        _content_el.innerHTML = "";
+        _title_el.innerText = "";
+    }
 
 
 

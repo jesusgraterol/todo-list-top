@@ -10,6 +10,9 @@ const ViewManager = (() => {
 
 
 
+    // Active Project title
+    const _sub_header_title_el = document.getElementById("sub_header_title");
+
 
     // Sidenav Projects List
     const _sidenav_els = [
@@ -21,6 +24,19 @@ const ViewManager = (() => {
 
 
 
+
+
+    /*********************************
+     * ACTIVE PROJECT NAME RENDERING *
+     *********************************/
+
+
+
+    /**
+     * Sets the name of the active project in the sub header.
+     * @param {*} name 
+     */
+    const _render_project_name_in_sub_header = (name) => { _sub_header_title_el.innerText = name }
 
 
 
@@ -45,9 +61,9 @@ const ViewManager = (() => {
     const _build_project_item_html = (project) => {
         return `
             <li>
-                <button${project.active ? " disabled": ""}>
-                    <span class="truncate">${project.name}</span>
-                    <span class="badge">${project.todos.length}</span>
+                <button${project.active ? " disabled": ""} data-project-id="${project.id}">
+                    <span class="truncate" data-project-id="${project.id}">${project.name}</span>
+                    <span class="badge" data-project-id="${project.id}">${project.todos.length}</span>
                 </button>
             </li>
         `;
@@ -122,6 +138,9 @@ const ViewManager = (() => {
 
             // Initialize the active project
             const active = projects.find((project) => project.active);
+
+            // Set the name of the active project in the subheader
+            _render_project_name_in_sub_header(active.name);
             
             // Render the project list
             _render_project_list(projects);

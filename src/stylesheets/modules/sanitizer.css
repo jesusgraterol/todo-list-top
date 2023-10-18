@@ -6,3 +6,4 @@ ul li, ol li { margin: 10px 0 10px 0; }
 ul li .md-icon, ol li .md-icon { vertical-align: middle;}
 button {background-color: inherit;}
 button:hover {cursor: pointer;}
+button:focus { outline: none;}

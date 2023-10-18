@@ -17,4 +17,4 @@ import Toastr from "./modules/toastr";
 import Modal from "./modules/modal";
 import { FormGroup, FormControl } from "./modules/form";
 import ViewManager from "./modules/view-manager";
-import Project from "./modules/project";
+import Project, { ProjectUtilities } from "./modules/project";

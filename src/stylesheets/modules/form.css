@@ -22,6 +22,7 @@
     border-bottom: 1px solid var(--primary-color);
     padding:7px;
     margin-top: 10px;
+    /* font-size:0.9rem; */
     /* border-radius: 4px; */
 }
 
@@ -68,6 +69,7 @@
 
 /* Form Submission */
 .form button {
+    margin-top:15px;
     padding:15px;
     color:white;
     background-color: var(--primary-color);
