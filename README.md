@@ -9,6 +9,7 @@ The key features are:
 - Add any number of tasks
 - Group tasks into categories|projects
 - Manage the state of tasks
+- The user's data is stored privately in LocalStorage
 - Cross-Platform Compatibility
 
 
